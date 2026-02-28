@@ -29,6 +29,28 @@ int remove_duplicates_non_ptr(uint32_t *nums, int size)
 
 	return slow + 1;
 }
+
+/*BUGGY*/
+int remove_duplicates_fast(uint32_t *nums, int size)
+{
+	uint32_t *s = nums, *f = nums + 1;
+
+
+	uint32_t new_len = 0;
+
+	for (uint32_t i = 1; i < size; ++i) { //while (len  > 0) {
+		/*unique values*/
+		if (*f != *s) {
+            ++s;
+			*s = *f;
+		    ++new_len;
+		}
+		++f;
+	}
+
+	return new_len + 1;
+}
+
 int remove_duplicates(uint32_t *nums, int size)
 {
 	uint32_t *s = nums, *f = nums + 1;
@@ -57,7 +79,7 @@ int remove_duplicates(uint32_t *nums, int size)
 }
 struct ops ops = {
 	.print_cb = print,
-	.remove_duplicates = remove_duplicates_non_ptr,
+	.remove_duplicates = remove_duplicates_fast,
 };
 
 int main()

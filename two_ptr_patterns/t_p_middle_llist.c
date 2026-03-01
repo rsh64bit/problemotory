@@ -76,19 +76,17 @@ void llist()
 		list[i]->next = list[i + 1];
 	}
 
-    for (int i = 0; i < MAX_NODE; ++i) {
+	for (int i = 0; i < MAX_NODE; ++i) {
 		printf("list ptr %p next %p\n", list[i], list[i]->next);
 	}
 
+	struct list *node = list[0];
 
-    struct list *node = list[0];
-
-    printf("list -> \n");
-    while (node != NULL) {
-        printf("%p %p\n", node, node->next);
-        node = node->next;
-    }
-
+	printf("list -> \n");
+	while (node != NULL) {
+		printf("%p %p\n", node, node->next);
+		node = node->next;
+	}
 
 	/*find middle and remove the node*/
 	int mid = MAX_NODE / 2;
@@ -100,24 +98,23 @@ void llist()
 	s = head;
 	f = head->next;
 	while (f != NULL) {
-		if (i == mid ) {
+		if (i == mid) {
 			s->next = f->next;
 			free(f);
-            break;
+			break;
 		}
 		s = f;
 		f = f->next;
 		++i;
 	}
-    node = list[0];
+	node = list[0];
 
-    printf("after delete -->\n");
+	printf("after delete -->\n");
 
-    while (node != NULL) {
-        printf("%p %p\n", node, node->next);
-        node = node->next;
-    }
-
+	while (node != NULL) {
+		printf("%p %p\n", node, node->next);
+		node = node->next;
+	}
 }
 
 int main()

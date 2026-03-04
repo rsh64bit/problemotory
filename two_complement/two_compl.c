@@ -19,7 +19,6 @@ int main()
     x = y = z = TEST_VAL;
 
 
-    //printf("signed x %x %d\n", -x, 0xfb);
 
     while (y) {
         if ( y & 0x1) ++count;
@@ -60,5 +59,7 @@ int main()
 
     printf("find the first %d nth bit set -> %x\n", (__l & -__l) - 1, l);
 
+
+    printf("built int __builtin_popcount of 0x0a -> %d\n", __builtin_popcount(0x0a));
     return 1;
 };

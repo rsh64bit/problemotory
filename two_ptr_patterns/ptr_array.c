@@ -3,8 +3,8 @@
 #include <stdint.h>
 
 /*
- *  int (*ptr)[20]
- *  int *ptr[20]*/
+ *  int (*ptr)[20] -> pointer to the array of 20 elements
+ *  int *ptr[20] -> array of 20 pointers to int*/ 
 
 void check_array(int (*ptr)[20])
 {
